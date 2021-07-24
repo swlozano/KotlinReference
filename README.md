@@ -79,10 +79,12 @@ is used for the assignment statement
 ```+=, -=, *=, /=, %=```
 
 **logical operations** \
-```&&, ||, ! logical 'and', 'or', 'not' operators```
+```&&, ||, !``` 
+logical operators \ 
+```'and', 'or', 'not' ```
 
 **equality operators** \
-```==, !=```
+```==, !=``` \
 you can use these operators to compare any type
 ```kotlin
 fun main(args: Array<String>) {
