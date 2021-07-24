@@ -122,4 +122,22 @@ fun main(args: Array<String>) {
   println(fruits[2]) // Banana
 }
 ```
+### KDoc Comments
+KDoc is like Javadoc, it starts with /** and it ends with */. This form of commenting is very similar to the multiline comment , but this is used to provide API documentation to Kotlin codes. 
+
+```kotlin
+/**
+   This is an example documentation using KDoc syntax
+   @author Ted Hagos
+   @constructor
+   */
+   class Person(val name: String) {
+      /**
+      This is another KDoc comment
+      @return
+      */
+      fun foo(): Int{
+      } 
+   }
+```
 
