@@ -71,16 +71,15 @@ fun main(args: Array<String>) {println("Hello")}
 ```+, -, *, /, %```
 
 **the equal symbol** \
-```= ``` 
+```= ```\
 is used for the assignment statement
 
 **assignment operators** \
-
 ```+=, -=, *=, /=, %=```
 
 **logical operations** \
-```&&, ||, !``` 
-logical operators \ 
+```&&, ||, !```\
+logical operators\
 ```'and', 'or', 'not' ```
 
 **equality operators** \
