@@ -70,18 +70,18 @@ fun main(args: Array<String>) {println("Hello")}
 **mathematical operators** \
 ```+, -, *, /, %```
 
-**the equal symbol**
+**the equal symbol** \
 ```= ``` 
 is used for the assignment statement
 
-**assignment operators**
+**assignment operators** \
 
 ```+=, -=, *=, /=, %=```
 
-**logical operations**
+**logical operations** \
 ```&&, ||, ! logical 'and', 'or', 'not' operators```
 
-**equality operators**
+**equality operators** \
 ```==, !=```
 you can use these operators to compare any type
 ```kotlin
