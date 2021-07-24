@@ -65,6 +65,33 @@ or
 fun main(args: Array<String>) {println("Hello")}
 ```
 
+### Operators
 
+**mathematical operators** \
+```+, -, *, /, %```
+
+**the equal symbol**
+```= ``` 
+is used for the assignment statement
+
+**assignment operators**
+
+```+=, -=, *=, /=, %=```
+
+**logical operations**
+```&&, ||, ! logical 'and', 'or', 'not' operators```
+
+**equality operators**
+```==, !=```
+you can use these operators to compare any type
+```kotlin
+fun main(args: Array<String>) {
+  var a = "Hello"
+  var b = "Hello"
+  if (a == b) { 
+    // this evaluates to true println("$a is equal to $b")
+  } 
+}
+```
 
 
