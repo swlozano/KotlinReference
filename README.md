@@ -94,5 +94,32 @@ fun main(args: Array<String>) {
   } 
 }
 ```
+### referential equality\
+```
+===, !===
+``` 
+valuates to true if and only if a and b point to the same object
+```kotlin
+  var p1 = Person("John") var p2 = Person("John")
+  if(p1 === p2) { 
+  // false println("p1 == p2")
+  }
+```
+p1 and p2 do not point to the same object; hence, the triple equals will not evaluate to true
 
+**Comparison operators**
+```kotlin
+<, >, <=, >=
+```
+**index access**
+```kotlin
+[ ][,]
+```
+```kotlin
+fun main(args: Array<String>) {
+  val fruits = listOf("Apple", "Banana", "Orange") 
+  println(fruits.get(2)) // Banana 
+  println(fruits[2]) // Banana
+}
+```
 
