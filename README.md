@@ -436,10 +436,10 @@ fun printArr(arr: Array<Int>?) {
 
 ### Chapter Summary
 
-• Kotlin’s program elements are not that different from Java; it also has operators, blocks, statements, expressions, etc. In Kotlin, however, some constructs that are considered statements in Java are expressions in Kotlin, and some that were considered expressions in Java are statements in Kotlin (e.g., the assignment operation).
-• Kotlin’s basic types are not the same as primitive types of Java. Everything in Kotlin is an object.
-• There are two ways to declare a variable in Kotlin. When the var keyword is used, the variable is mutable. When the val keyword is used, the variable is immutable.
-• Strings in Kotlin have iterators. Also, they’re easier to compose and combine with the help of template expressions.
-• When variables are declared in Kotlin, they are by default non- Nullable, unless we declare them otherwise.
-• Kotlin doesn’t have a switch statement, but it’s got a when construct.
-• In Kotlin, we don’t have to write try-catch anymore because it basically uses unchecked Exceptions.
+* Kotlin’s program elements are not that different from Java; it also has operators, blocks, statements, expressions, etc. In Kotlin, however, some constructs that are considered statements in Java are expressions in Kotlin, and some that were considered expressions in Java are statements in Kotlin (e.g., the assignment operation).
+* Kotlin’s basic types are not the same as primitive types of Java. Everything in Kotlin is an object.
+* There are two ways to declare a variable in Kotlin. When the var keyword is used, the variable is mutable. When the val keyword is used, the variable is immutable.
+* Strings in Kotlin have iterators. Also, they’re easier to compose and combine with the help of template expressions.
+* When variables are declared in Kotlin, they are by default non- Nullable, unless we declare them otherwise.
+* Kotlin doesn’t have a switch statement, but it’s got a when construct.
+* In Kotlin, we don’t have to write try-catch anymore because it basically uses unchecked Exceptions.
