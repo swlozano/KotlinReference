@@ -256,3 +256,86 @@ fun main(args:Array<String>) {
 fun foo(): String { 
   return "Boo"
 }
+```
+### Controlling Program Flow
+#### Using ifs
+
+The basic form of the if construct is 
+```kotlin
+if (expression) statement
+```
+```kotlin
+val theQuestion = "Doctor who" 
+val answer = "Theta Sigma"
+val correctAnswer = ""
+if (answer == correctAnswer) { 
+  println("You are correct")
+}
+```
+** else if**
+```kotlin
+val d = Date()
+val c = Calendar.getInstance()
+val day = c.get(Calendar.DAY_OF_WEEK)
+if (day == 1) { 
+  println("Today is Sunday")
+}
+else if (day == 2) {
+  println("Today is Monday") 
+}
+else if ( day == 3) { 
+  println("Today is Tuesday")
+}
+```
+```kotlin
+val theQuestion = "Doctor who" 
+val answer = "Theta Sigma"
+val correctAnswer = ""
+var message = if (answer == correctAnswer) { 
+  "You are correct"
+} else{
+  "Try again" 
+}
+```
+omit the curly braces on the blocks, since the blocks contain only single statements.
+```kotlin
+var message = if (answer == correctAnswer) "You are correct" else "Try again"
+```
+### The when Statement
+```kotlin
+val d = Date()
+val c = Calendar.getInstance()
+val day = c.get(Calendar.DAY_OF_WEEK)
+when (day) {
+  1 -> println("Sunday")
+  2 -> println("Monday")
+  3 -> println("Tuesday")
+  4 -> println("Wednesday")
+}
+```
+when construct can also be used as an expression
+```kotlin
+val d = Date()
+val c = Calendar.getInstance()
+val day = c.get(Calendar.DAY_OF_WEEK)
+var dayOfweek = when (day) { 
+  1 -> "Sunday"
+  2 -> "Monday"
+  3 -> "Tuesday"
+  4 -> "Wednesday"
+  else -> "Unknown" 
+}
+```
+How to Write Branches Inside the When Construct
+````kotlin
+fun main(args: Array<String>) {
+    print("What is the answer to life? ")
+    var response:Int? = readLine()?.toInt() 
+    val message = when(response){
+        42 -> "So long, and thanks for the all fish" 
+        43, 44, 45 -> "either 43,44 or 45" 
+        in 46 .. 100 -> "forty six to one hundred" 
+        else -> "Not what I'm looking for"
+    }
+    println(message)
+}
