@@ -171,5 +171,86 @@ Every number type can be converted to any of the number types. That means all Do
 • toFloat() : Float
 • toDouble() : Double
 • toChar() : Char
+```
+### Characters
+Characters in Kotlin cannot be treated directly as numbers. 
+```
+var enterKey = 'a'
+```
+Member Functions of the Character Type
+```
+val a = 'a'
+println(a.isLowerCase()) // true 
+println(a.isDigit()) // false
+println(a.toUpperCase()) // A
+val b: String = a.toString() // converts it to a String
+```
 
+### Escape sequences
 
+use escape sequences such as \t, \b, \n, \r, \", \", \\, and \$ and if you need to encode any other character, you can use the Unicode syntax (e.g., \uFF00).
+
+### Booleans
+Booleans are represented by the literals true and false. 
+
+### Arrays
+Working With the Array Type
+```
+fun main(args: Array<String>) {
+    var emptyArray = arrayOfNulls<String>(2) 
+    emptyArray[0] = "Hello" 
+    emptyArray[1] = "World"
+    for (i in emptyArray.indices) println(emptyArray[i]) 
+    for (i in emptyArray) println(i) 
+    var arrayOfInts = arrayOf(1,2,3,4,5,6) 
+    arrayOfInts.forEach { e -> println(e) } 
+    var arrayWords = "The quick brown fox".split(" ").toTypedArray() 
+    arrayWords.forEach { item -> println(item) }
+}
+```
+
+### Strings and String Templates
+var str: String = "Hello World\n"
+
+#### raw string
+using triple quote delimiter
+
+```kotlin
+var rawStr = """Amy Pond, there's something you'd better understand about me 'cause it's important, and one day your life may depend on it:
+I am definitely a mad man with a box!
+"""
+```
+
+#### about Kotlin strings
+```kotlin
+  val str = "The quick brown fox"
+  for (i in str) println(i)
+  println(str[2]) // returns 'e'
+  var strNum = 10 + "" // this won't work anymore
+  var strNum = 10.toString() // we have to explicitly convert now
+```
+#### Using String.format and printf
+```
+var name = "John Doe"
+var email = "john.doe@gmail.com" var phone = "(01)777-1234"
+var concat = String.format("name: %s | email: %s | phone: %s", name, email, phone)
+println(concat)
+// prints
+// name: John Doe | email: john.doe@gmail.com | phone: (01)777-1234
+```
+```kotlin
+var concat = "name: $name | email: $email | phone: $phone" println(concat)
+// prints
+// name: John Doe | email: john.doe@gmail.com | phone: (01)777-1234
+```
+#### Using Template Expressions
+```kotlin
+fun main(args:Array<String>) {
+    var name = "John Doe"
+    println("Hello $name")
+    println("The name '$name' is ${name.length} characters long")
+    println("Hello ${foo()}")
+}
+fun foo(): String { 
+  return "Boo"
+}
