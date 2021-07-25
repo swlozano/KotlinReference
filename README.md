@@ -82,10 +82,10 @@ is used for the assignment statement
 logical operators\
 ```'and', 'or', 'not' ```
 
-**equality operators** \
+**equality operators** 
 ```kotlin
 ==, !=
-``` \
+```
 you can use these operators to compare any type
 ```kotlin
 fun main(args: Array<String>) {
