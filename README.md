@@ -264,6 +264,7 @@ The basic form of the if construct is
 ```kotlin
 if (expression) statement
 ```
+
 ```kotlin
 val theQuestion = "Doctor who" 
 val answer = "Theta Sigma"
@@ -272,7 +273,9 @@ if (answer == correctAnswer) {
   println("You are correct")
 }
 ```
-** else if**
+
+**else if**
+
 ```kotlin
 val d = Date()
 val c = Calendar.getInstance()
@@ -327,7 +330,8 @@ var dayOfweek = when (day) {
 }
 ```
 How to Write Branches Inside the When Construct
-````kotlin
+
+```kotlin
 fun main(args: Array<String>) {
     print("What is the answer to life? ")
     var response:Int? = readLine()?.toInt() 
@@ -339,3 +343,103 @@ fun main(args: Array<String>) {
     }
     println(message)
 }
+```
+### The while Statement
+
+The while and do . . while statements work exactly as they do in Java
+
+```kotlin
+fun main(args: Array<String>) { 
+  var count = 0
+  val finish = 5
+  while (count++ < finish) { 
+    println("counter = $count") 
+  }
+}
+```
+### for loops
+```kotlin
+  for (int i = 0; i < 10; i++) { 
+    statements
+  }
+```
+
+**Basic for Loop**
+```kotlin
+fun main(args: Array<String>) {
+  val words = "The quick brown fox".split(" ")
+  for(word in words) { 
+    println(word)
+  }
+}
+```
+
+#### Ranges
+If you need to work with numbers on the for loop, you can use Ranges. 
+```kotlin
+  var zeroToTen = 0..10
+  if (9 in zeroToTen) println("9 is in zeroToTen")
+```
+**Using Ranges in for Loop**
+
+```kotlin
+fun main(args: Array<String>) { 
+  for (i in 1..10) {
+    println(i)
+  }
+}
+```
+### Exception Handling
+Kotlin’s exception handling is very similar to Java: it also uses the try-catch-finally construct
+```kotlin
+fun main(args: Array<String>) {
+  var fileReader: FileReader
+  try {
+    fileReader = FileReader("README.txt") var content = fileReader.read() println(content)
+  }
+  catch (ffe: FileNotFoundException) { 
+    println(ffe.message)
+  }
+  catch(ioe: IOException) { 
+    println(ioe.message)
+  }
+}
+```
+### Handling Nulls
+
+Handling of null values is such a big concern in Java that Kotlin made a very deliberate decision to introduce the concept of a Nullable type.
+```kotlin
+var str: String = "Hello" 
+str = null // won't work
+```
+To make a String (or any type) Nullable, we use the question mark symbol as postfix to the type, like
+```kotlin
+var str: String? = "Hello"
+```
+#### safe-call operator
+It’s called the safe-call operator, which is written as the question mark symbol followed by a dot ?.
+```kotlin
+  arr?.forEach { i -> println(i) }
+```
+What the safe call does is to first check if arr is null; if it is, it won’t go through the forEach operation. 
+
+**Safe Call Operator**
+```kotlin
+fun main(args: Array<String>) {
+  var a = arrayOf(1,2,3)
+  printArr(null)
+}
+fun printArr(arr: Array<Int>?) { 
+    arr?.forEach { i -> println(i) }
+}
+```
+
+### Chapter Summary
+
+• Kotlin’s program elements are not that different from Java; it also has operators, blocks, statements, expressions, etc. In Kotlin, however, some constructs that are considered statements in Java are expressions in Kotlin, and some that were considered expressions in Java are statements in Kotlin (e.g., the assignment operation).
+• Kotlin’s basic types are not the same as primitive types of Java. Everything in Kotlin is an object.
+• There are two ways to declare a variable in Kotlin. When the var keyword is used, the variable is mutable. When the val keyword is used, the variable is immutable.
+• Strings in Kotlin have iterators. Also, they’re easier to compose and combine with the help of template expressions.
+• When variables are declared in Kotlin, they are by default non- Nullable, unless we declare them otherwise.
+• Kotlin doesn’t have a switch statement, but it’s got a when construct.
+• In Kotlin, we don’t have to write try-catch anymore because it basically uses unchecked Exceptions.
