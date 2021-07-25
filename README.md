@@ -140,4 +140,36 @@ KDoc is like Javadoc, it starts with /** and it ends with */. This form of comme
       } 
    }
 ```
+### Numbers and Literal Constants
+```kotlin
+var a = 10L // a is a Long literal, note the L postfix var b = 20
+var a = b // this won't work
+var a = b.toLong() // this will work
+```
+
+```
+var a = 100 // Int literal 
+var b = 10L // Long literal
+```
+You can use underscores in numeric literals to make them more readable. This feature was introduced in Java 7 and its later versions.
+```
+var oneMillion = 1_000_000
+var creditCardNumber = 1234_5678_9012_3456
+```
+
+Literals with decimal positions are automatically Doubles. To declare a float literal, use the F postfix, like
+```
+var a = 3.1416 // Double literal 
+var b = 2.54 // Float literal
+```
+Every number type can be converted to any of the number types. That means all Double, Float, Int, Long, Byte, and Short types support the following member functions:
+```
+• toByte() : Byte
+• toShort() : Short
+• toInt() : Int
+• toLong() : Long
+• toFloat() : Float
+• toDouble() : Double
+• toChar() : Char
+
 
