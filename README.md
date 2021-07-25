@@ -83,7 +83,9 @@ logical operators\
 ```'and', 'or', 'not' ```
 
 **equality operators** \
-```==, !=``` \
+```kotlin
+==, !=
+``` \
 you can use these operators to compare any type
 ```kotlin
 fun main(args: Array<String>) {
@@ -95,7 +97,7 @@ fun main(args: Array<String>) {
 }
 ```
 ### referential equality\
-```
+```kotlin
 ===, !===
 ``` 
 valuates to true if and only if a and b point to the same object
@@ -147,23 +149,23 @@ var a = b // this won't work
 var a = b.toLong() // this will work
 ```
 
-```
+```kotlin
 var a = 100 // Int literal 
 var b = 10L // Long literal
 ```
 You can use underscores in numeric literals to make them more readable. This feature was introduced in Java 7 and its later versions.
-```
+```kotlin
 var oneMillion = 1_000_000
 var creditCardNumber = 1234_5678_9012_3456
 ```
 
 Literals with decimal positions are automatically Doubles. To declare a float literal, use the F postfix, like
-```
+```kotlin
 var a = 3.1416 // Double literal 
 var b = 2.54 // Float literal
 ```
 Every number type can be converted to any of the number types. That means all Double, Float, Int, Long, Byte, and Short types support the following member functions:
-```
+```kotlin
 • toByte() : Byte
 • toShort() : Short
 • toInt() : Int
@@ -174,11 +176,11 @@ Every number type can be converted to any of the number types. That means all Do
 ```
 ### Characters
 Characters in Kotlin cannot be treated directly as numbers. 
-```
+```kotlin
 var enterKey = 'a'
 ```
 Member Functions of the Character Type
-```
+```kotlin
 val a = 'a'
 println(a.isLowerCase()) // true 
 println(a.isDigit()) // false
@@ -195,7 +197,7 @@ Booleans are represented by the literals true and false.
 
 ### Arrays
 Working With the Array Type
-```
+```kotlin
 fun main(args: Array<String>) {
     var emptyArray = arrayOfNulls<String>(2) 
     emptyArray[0] = "Hello" 
@@ -230,7 +232,7 @@ I am definitely a mad man with a box!
   var strNum = 10.toString() // we have to explicitly convert now
 ```
 #### Using String.format and printf
-```
+```kotlin
 var name = "John Doe"
 var email = "john.doe@gmail.com" var phone = "(01)777-1234"
 var concat = String.format("name: %s | email: %s | phone: %s", name, email, phone)
