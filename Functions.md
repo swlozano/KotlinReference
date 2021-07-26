@@ -104,3 +104,18 @@ fun main(args: Array<String>) {
   manyParams(*"Hello there".split(" ").toTypedArray())
 }
 ```
+**Extension Functions**
+ An extension function in Kotlin allows us
+to add behavior to an existing class, including the ones written in Java, without using inheritance. It essentially lets us define a function that can be invoked as a member of the class, but the function is implemented outside the class. 
+**Extended String Class**
+```kotlin
+fun main(args: Array<String>) {
+  val msg = "My name is Maximus Decimus Meridius"
+  println(msg.homerify()) 
+  println(msg.chanthofy()) 
+  println(msg.terminatorify())
+}
+fun String.homerify() = "$this -- woohoo!"
+fun String.chanthofy() = "Chan, $this , tho"
+fun String.terminatorify() = "$this -- I'll be back"
+```
