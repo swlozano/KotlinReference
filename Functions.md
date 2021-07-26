@@ -149,3 +149,5 @@ class Person(val name : String) {
 A function can be converted to infix, only if
 - it’s a member function (part of a class) or an extension function, and
 - it accepts exactly one parameter (only). If you’re thinking of a loophole like, “I could probably define a single parameter in my function and use vararg,” that won’t work. Variable arguments are not allowed to be converted to infix functions.
+
+## Operator Overloading
