@@ -119,3 +119,33 @@ fun String.homerify() = "$this -- woohoo!"
 fun String.chanthofy() = "Chan, $this , tho"
 fun String.terminatorify() = "$this -- I'll be back"
 ```
+## Infix Functions
+“Infix” notation is one of the notations used in math and logical expressions. It’s the placement of operator between operands (e.g., a + b; the plus symbol is “infixed” because it’s between the operands a and b). In contrast, operations can follow “post fixed” notation where the expression is written like so (+ a b) or they can be “post fixed,” in which our expression is written like this (a b +).
+
+In Kotlin, member functions can be “infixed,” which allow us to write codes like the following:
+```kotlin
+john say "Hello World"
+```
+Person Class Without infix Function
+```kotlin
+fun main(args: Array<String>) { 
+  val john = Person("John Doe") 
+  john.say("Hello World")
+}
+class Person(val name : String) {
+  fun say(message: String) = println("$name is saying $message")
+}
+```
+Person Class With an infix Function
+```kotlin
+fun main(args: Array<String>) { 
+  val john = Person("John Doe") 
+  john say "Hello World"
+}
+class Person(val name : String) {
+  infix fun say(message: String) = println("$name is saying $message")
+}
+```
+A function can be converted to infix, only if
+- it’s a member function (part of a class) or an extension function, and
+- it accepts exactly one parameter (only). If you’re thinking of a loophole like, “I could probably define a single parameter in my function and use vararg,” that won’t work. Variable arguments are not allowed to be converted to infix functions.
