@@ -69,4 +69,38 @@ connectToDb("mycomputer","root")
 
 ## Named Parameters
 
+we can name the argument at the call site.
+```kotlin
+connecToDb(hostname = "neptune", username = "jupiter",
+password = "saturn")
+```
+a call like this isn’t allowed
+```kotlin
+connectToDb(hostname = "neptune", username = "jupiter", "saturn")
 
+```
+a call like this is allowed.
+```kotlin
+connectToDb("neptune",
+username = "jupiter",
+password = "saturn")
+```
+## Variable Number of Arguments
+we use the vararg keyword.\
+Demonstration of a Variable Argument Function<br>
+it’s generic. We didn’t have to declare it as generic in order to work with variable arguments—we just chose to so that it could work with a variety of types.<br>
+We need to use the spread operator * to unpack the array.
+
+```kotlin
+fun<T> manyParams(vararg va : T) {
+  for (i in va) { 
+    println(i) 
+  }
+}
+fun main(args: Array<String>) {
+  manyParams(1,2,3,4,5)
+  manyParams("From", "Gallifrey", "to", "Trenzalore")
+  manyParams(*args)
+  manyParams(*"Hello there".split(" ").toTypedArray())
+}
+```
