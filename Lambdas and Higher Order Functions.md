@@ -68,3 +68,28 @@ fun main(args: Array<String>) {
 <br>
 
 ## Lambda and Anonymous Functions
+
+Lambdas and anonymous functions are called function literals. These are functions that are not declared but, rather, passed immediately as an expression—more often than not, to a higher order function. Because of this they don’t need a name. 
+<br>
+you can actually use this without passing it to a higher order function. To invoke it, you may do something like the following—presumably inside function main or any other top-level function<br>
+doThis()<br>
+or something like this<br>
+doThis.invoke()
+<br>
+Anyway, lambda expressions aren’t meant to be used like this. They really shine when used within the context of higher order functions.
+<br>
+Instead of declaring and defining a named lambda, we will simply pass it as an argument to the higher order function executor, as seen in
+
+**Pass a lambda to a Higher Order Function**
+```kotlin
+fun main(args: Array<String>) {
+  executor({ println("do this") } ➊ )
+}
+fun executor(action:() -> Unit) { 
+  action()
+}
+```
+➊This is the function literal. in Listing 5-5, we passed doThis, which was a property whose value was a lambda expression. in this example, we are passing the lambda expression itself directly to the higher order function. a lambda expression is enclosed in a pair of curly braces— just like the body of a function.
+
+## Parameters in Lambda Expressions
+
