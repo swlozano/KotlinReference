@@ -357,3 +357,63 @@ fun main(args: Array<String>) {
  ```
 ➊ ➋ This results in a recursive call, which will eventually throw StackOverflowError.<br>
 The expression this.name doesn’t really access the member variable name. Instead, it calls the default accessor methods that Kotlin provides automatically when you define a property for the class
+
+## Data Classes
+we’ve seen how easily we can create the analog of POJOs in Kotlin<br>
+**Comparing Two Employee Objects**
+```kotlin 
+class Employee(val name:String)
+fun main(args: Array<String>) {
+  val e1 = Employee("John Doe") 
+  val e2 = Employee("John Doe")
+  println(e1 == e2) // output is false 
+}
+```
+To resolve this, we can override the equals() method and provide an implementation on how to compare Employee objects.
+<br>
+  Overriding the hashCode() and equals() Functions
+ ```kotlin 
+import java.util.*
+class Employee(val name:String){
+  override fun equals(obj:Any?):Boolean { ➊
+    var retval = false 
+    if(obj is Employee) { ➋
+      retval = name == obj.name ➌ 
+    }
+    return retval
+  }
+  override fun hashCode(): Int { ➍ 
+    return Objects.hash(name)
+  } 
+}
+fun main(args: Array<String>) {
+  val e1 = Employee("John Doe") 
+  val e2 = Employee("John Doe")
+  println(e1) ➎
+  println(e1 == e2) ➏ 
+}
+  ```
+➊ The equals() function in class Any is open, we can override it.<br>
+➋ We check first if we are comparing an Employee object to another Employee object. The is keyword performs two functions: (1) it checks if obj is actually an instance of Employee, and (2) it automatically casts obj to an Employee object.<br>
+➌ Obj is automatically casted to an Employee object. The is keyword already did that. now, we can safely compare the name member variables of the two objects.<br>
+➍ Overriding the hashCode() function is usually needed if you intend to store this object in collections where comparisons of hash code is material (e.g., HashSet, HashMap, etc.). For our small example, it’s not necessary. But it’s a good practice to override the hashCode() function whenever you override the equals() function.<br>
+➎ Invokes the toString() function of the Employee object. The toString() function is found on the supertype Any. The default implementation of toString() gives us an output of something like this "employee@ae805cc4".<br>
+➏ now, this prints "true". <br>
+
+While we can still do these things in Kotlin, we don’t have to. The only thing we need to do in Kotlin is to make Employee a data class.<br>
+**Employee Data Class**
+```kotlin
+data class Employee(val name:String) ➊
+fun main(args: Array<String>) { 
+   val e1 = Employee("John Doe") 
+  val e2 = Employee("John Doe")
+  println(e1) ➋
+  println(e1 == e2) ➌ 
+ }
+ ```
+➊ To make any class in kotlin a data class, just use the keyword data on the class declaration.<br>
+➋ We get an added bonus of a nicer toString() output with data classes. This one now prints “employee(name=John Doe)”.<br>
+➌ also, the equals() comparison returns true.  <br>
+
+##  Visibility Modifiers
+The keywords public, private, and protected mean exactly the same in Kotlin as they do in Java. But, the default visibility is where the difference lies. In Kotlin, whenever you omit the visibility modifier, the default visibility is public.
