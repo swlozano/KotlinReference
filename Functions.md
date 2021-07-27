@@ -151,3 +151,23 @@ A function can be converted to infix, only if
 - it accepts exactly one parameter (only). If you’re thinking of a loophole like, “I could probably define a single parameter in my function and use vararg,” that won’t work. Variable arguments are not allowed to be converted to infix functions.
 
 ## Operator Overloading
+Operator overloading allows us to appropriate the use of some standard operators, like the math operators’ addition, subtraction, division, multiplication, and modulo. For example, we can write a code that allows the use of the plus sign to, say, add two Employee objects, or any other custom type.<br>
+
+we can teach the addition operator how to add two Employee objects. 
+
+```kotlin
+class Employee(var name: String) {
+  infix operator fun plus(emp: Employee) : Employee {
+    this.name += "\n${emp.name}" //
+    return this
+  } 
+}
+fun main(args: Array<String>) {
+  var e1 = Employee("John Doe") 
+  var e2 = Employee("Jane Doe")
+  var e3 = e1 plus e2
+}
+```
+However, the function name plus isn’t an ordinary function name. It isn’t just another name that we thought about and made up. It has a special meaning to Kotlin. The plus function name is a fixed identifier that corresponds to the math operator +. And when this special function name is combined with the keywords infix and operator, it allows us to write codes like this
+var e3 = e1 + e2
+
