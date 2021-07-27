@@ -259,3 +259,8 @@ class Programmer(_name:String) : Employee(_name) {
   }
 }
 ```
+➊ seeing the final and override keyword on the same line does seem a bit odd, but it’s perfectly legal. What it means is that we are overriding the function and at the same time “closing” it for further inheritance. The final keyword in this function affects only subtypes of the employee class, but not the employee class itself.
+  <br>
+➋ This won’t compile anymore.
+  <bR>
+ <b>Hola</b>
