@@ -266,3 +266,94 @@ class Programmer(_name:String) : Employee(_name) {
 ## Properties
 
   A property in a class or object is traditionally created by defining a member variable and providing accessor methods for it. These methods will usually follow some naming conventions where the name of the member variable will be prefixed by get and set.
+
+**Person class With a Single Property**
+ ```kotlin
+class Person(_name:String) { ➊ 
+  val name:String = _name ➋
+}
+fun main(args: Array<String>) {
+  var person = Person("John Smith") 
+  println(person.name) ➌
+}
+```  
+➊ a constructor takes in a parameter. This allows us to set the name of the object at the point of creation.<br>
+➋ We have access to parameters from via the constructor from here.<br>
+➌ This may look like we are directly accessing the name member variable, but we are not. This
+actually calls the get accessor method.<br>
+
+  
+**Simplified Person class**
+```kotlin
+class Person(val name:String)
+fun main(args: Array<String>) {
+  var person = Person("John Smith") 
+  println(person.name)
+}
+```
+The code here is the most concise way of defining a property in Kotlin. It’s also considered idiomatic. Notice the changes we made in the code:<br>
+1. The parameter in the primary constructor now has a val declaration. This effectively makes the constructor parameter a property. We could have used var, and it would work just as well.<br>
+2. We no longer need to differentiate the identifier in the constructor parameter with the member variable; hence we dropped the leading underscore in the _name variable.<br>
+3. We can drop the entire body of the class since we don’t need
+it anymore. The class body only contains the code to transfer
+the value of the constructor parameter to the member variable. Since Kotlin will automatically define a backing field for the constructor parameter, we don’t have to do anything anymore in the class body.<br>
+
+The code shows the most basic way to define data objects in Kotlin (Java programmers refer to them as POJOs or plain old java object). By simply using either val or var in the primary constructor parameters, we can automagically define properties with proper mutator methods.
+  
+### “getting” and “setting”
+1. Declare the property in the body of the class, not in the primary constructor.<br>
+2. Provide getter and setter methods in the class body.<br>
+The full syntax for declaring a property is as follows:<br>
+
+```kotlin
+var <property name>:[<property type>][=<initializer>] [<getter>]
+[<setter>]
+``` 
+
+**Custom Accessor Methods**
+
+  ```kotlin
+class Employee {
+  var name: String = "" ➊
+  get() { ➋
+    Log("Getting lastname") ➌ 
+    return field ➍
+  }
+  set(value) { ➎
+    Log("Setting value of lastname")
+    field = value ➏ 
+  }
+}
+fun Log(msg:String) {
+  println(msg)
+}
+fun main(args: Array<String>) { 
+  var emp = Employee()
+  emp.name = "John Doe" ➐ 
+  println(emp.name) ➑
+}
+  ```
+ ➊ We declare and define the property inside the class body, instead of capturing it as parameter in the primary constructor. We initialize it to an empty string first.<br>
+➋ The syntax for get() looks a lot like the syntax for defining a function, except we don’t write the fun keyword before it.<br>
+➌ This is where you write your custom code. This statement will be executed every time someone tries to access the name property.<br>
+➍ The field keyword is a special one. It refers to the backing field, which kotlin automatically provides when we define a property called name. The name member variable isn’t a simple variable; kotlin makes an automatic backing field for it, but we don’t have direct access to that variable. We can, however, access it via the field keyword, like what we did here.<br>
+➎ The value parameter corresponds to the value that will be assigned to the property after the employee object has been created (see bullet ➐).<br>
+➏ after we’ve performed our custom logic, we can now set the value of the field. ➐ This will trigger our set accessor logic, see bullet ➎.<br>
+➑ This will trigger our get accessor logic, see bullet ➋.<br>
+ 
+**This is the wrong way to code getter and setter for properties.**
+```kotlin
+ class Employee {
+  var name: String = ""
+  get() {
+    Log("Getting lastname") 
+    return this.name ➊
+   }
+   set(value) {
+    Log("Setting value of lastname")
+    this.name = value ➋ 
+  }
+}
+ ```
+➊ ➋ This results in a recursive call, which will eventually throw StackOverflowError.<br>
+The expression this.name doesn’t really access the member variable name. Instead, it calls the default accessor methods that Kotlin provides automatically when you define a property for the class
