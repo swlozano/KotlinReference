@@ -171,4 +171,9 @@ fun main(args: Array<String>) {
 However, the function name plus isn’t an ordinary function name. It isn’t just another name that we thought about and made up. It has a special meaning to Kotlin. The plus function name is a fixed identifier that corresponds to the math operator +. And when this special function name is combined with the keywords infix and operator, it allows us to write codes like this
 var e3 = e1 + e2
 
-![alt text](https://fsdtraining.co.uk/wp-content/uploads/2017/10/favicon.png)
+**Operators That can be Overloaded and Their Corresponding Function Names**
+![alt text](https://github.com/swlozano/KotlinReference/blob/main/Screen%20Shot%202021-07-26%20at%207.06.47%20PM.png?raw=true)
+
+Operator overloading is a specific case of polymorphism where different operators, like math operators, can have different implementations depending on the arguments (or type of operands).
+
+
