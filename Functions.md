@@ -171,3 +171,4 @@ fun main(args: Array<String>) {
 However, the function name plus isn’t an ordinary function name. It isn’t just another name that we thought about and made up. It has a special meaning to Kotlin. The plus function name is a fixed identifier that corresponds to the math operator +. And when this special function name is combined with the keywords infix and operator, it allows us to write codes like this
 var e3 = e1 + e2
 
+![alt text](https://fsdtraining.co.uk/wp-content/uploads/2017/10/favicon.png)
