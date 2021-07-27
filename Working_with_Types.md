@@ -184,3 +184,78 @@ class Employee (_name:String, _empid:String = "1001") {
   val empid = _empid
 }
 ```
+## Inheritance
+Kotlin classes are final by default, as opposed to Java classes that are “open” or non-final
+<br>
+```kotlin
+//won’t compile because the Person class is final.
+class Person {
+}
+class Employee : Person() {
+}
+```
+Shows the Person class again, but this time, it has the open modifier, which signifies that class Person can be extended.
+**Person and Employee**
+```kotlin
+class open class Person {
+}
+class Employee : Person() {
+}
+```
+
+The behavior of being final as a default behavior isn’t just for classes; member functions are like that too in Kotlin. When a function is written without the open modifier, it is final.
+
+**Method Overriding**
+
+```kotlin
+open class Person(_name:String) {
+  val name = _name
+  open fun talk() { ➊ 
+    println("${this.javaClass.simpleName} talking")
+  } 
+}
+class Employee(_name:String, _empid:String = "1001") : Person(_name) { 
+  val empid = _empid
+  override fun talk() { ➋ 
+    super.talk() ➌ 
+    println("Hello")
+  }
+  override fun toString():String{ ➍ 
+    return "name: $name | id: $empid"
+  } 
+}
+```
+➊ Functions need to be specifically marked as open so that they can be overridden by subtypes.
+<br>
+➋ subtypes need to mark the function with the override keyword in order to make it polymorphic. IntelliJ is smart enough to prevent compilation from happening when it senses that you are defining a function on the subtype that has an exact signature on the supertype without using the override keyword.
+<bR>
+➌ We can call the super behavior from here; this effectively invokes the talk() function in class Person.
+  <br>
+➍ We’re overriding the toString() function. This behavior was inherited from the Person class, which in turn it inherited from class Any. You can think of class Any as the analog for the java. lang.Object.
+
+**How to Make a Function Final, Again**
+
+```kotlin
+open class Person(_name:String) {
+  val name = _name
+  open fun talk() { 
+    println("${this.javaClass.simpleName} talking")
+  } 
+}
+open class Employee(_name:String, _empid:String = "1001") : Person(_name) { 
+  val empid = _empid
+  override fun talk() {
+    super.talk()
+    println("Employee overriding talk()")
+  }
+  final override fun toString():String{ ➊ 
+    return "name: $name | id: $empid"
+  } 
+}
+class Programmer(_name:String) : Employee(_name) { 
+  override fun talk() { ➋
+    super.talk()
+    println("Programmer overriding talk()") 
+  }
+}
+```
