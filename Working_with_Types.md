@@ -417,3 +417,64 @@ fun main(args: Array<String>) {
 
 ##  Visibility Modifiers
 The keywords public, private, and protected mean exactly the same in Kotlin as they do in Java. But, the default visibility is where the difference lies. In Kotlin, whenever you omit the visibility modifier, the default visibility is public.
+<br>
+Kotlin introduces the internal keyword, which means it is visible in a module. A module is simply a collection of files, it can be (1) an IntelliJ module or project; (2) an Eclipse project; (3) a Maven project; or (4) a Gradle project.
+
+ Class marked as internal, which makes it visible only in classes and top-level functions that are within the same module and whose visibility are also marked internal.
+
+```kotlin
+internal open class Foo {
+  internal fun boo() = println("boo") 
+  internal fun doo() = println("doo")
+}
+internal fun Foo.bar() { 
+  boo()
+  doo() 
+}
+fun main(args: Array<String>) { 
+   var fu = Foo()
+  fu.bar()
+}
+```
+## Access Modifiers  
+The access modifiers of Kotlin are: <i>final, open, abstract, and override.</i> <br>
+They affect inheritance. <br>
+The abstract keyword has the same meaning in Kotlin as it does in Java. It’s applicable to classes and functions.
+When you mark a class as abstract, it becomes implicitly open as well, so you don’t need to use the open modifier, it becomes redundant.<br> 
+Interfaces don’t need to be declared as abstract and open, since they are implicitly, already, abstract and open.
+  
+## Object Declarations  
+Java’s static keyword did not make the cut in Kotlin’s list of keywords. <br>
+There is no static equivalent in Kotlin; in its place, Kotlin introduces the object and companion keywords.<br>
+The object keyword allows us to define both a class and its instance all at the same time. More specifically, it defines only a single instance of that class, which makes this keyword a good way to define singletons in Kotlin.  
+
+**Using the Object Keyword to Define a Singleton**
+```kotlin  
+object Util {
+  fun foo() = println("foo")
+}
+fun main(args: Array<String>) { 
+  Util.foo() // prints "foo"
+}
+```
+We substitute the object keyword in place of the class keyword<br>
+Object declarations can contain most of the things you can write in class, like initializers, properties, functions, and member variables. The only thing you cannot write inside an object declaration is a constructor.<br>
+
+Initializers, Properties, Functions, and Member Variables in Object Declarations
+```kotlin
+object Util { 
+  var name = ""
+  set(value) { 
+    field = value
+  }
+  init {
+    println("Initializing Util")
+  }
+  fun foo() = println(name) 
+}
+fun main(args: Array<String>) { 
+  Util.name = "Bar"
+  Util.foo() // prints "Bar"
+}  
+```
+
