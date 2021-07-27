@@ -262,4 +262,7 @@ class Programmer(_name:String) : Employee(_name) {
 ➊ seeing the final and override keyword on the same line does seem a bit odd, but it’s perfectly legal. What it means is that we are overriding the function and at the same time “closing” it for further inheritance. The final keyword in this function affects only subtypes of the employee class, but not the employee class itself.
   <br>
 ➋ This won’t compile anymore.
- 
+
+## Properties
+
+  A property in a class or object is traditionally created by defining a member variable and providing accessor methods for it. These methods will usually follow some naming conventions where the name of the member variable will be prefixed by get and set.
