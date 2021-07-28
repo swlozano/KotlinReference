@@ -1,9 +1,6 @@
-# KotlinReference
-Guia rápida  de Kotlin para desarrolladores Android. 
+# Kotlin Basics
 
-## Kotlin Basics
-
-### Literals
+## Literals
 Kotlin provides literals for the basic types (numbers, character, Boolean, String).
 
 
@@ -14,7 +11,7 @@ var stringLiteral = "Hello" var charLiteral = '1'
 var boolLiteral = true
 ```
 
-### Variables
+## Variables
 A variable in Kotlin is created by declaring an identifier using the var keyword followed by the type, like in the statement
 
 ```kotlin
@@ -33,7 +30,7 @@ var foo = 10
 println(foo)
 ```
 
-### Keywords
+## Keywords
 Keywords are reserved terms that have special meaning to the compiler, and as such, they cannot be used as identifiers for any program elements such as classes, variable names, function names, and interfaces.
 
 Hard keywords 
@@ -52,7 +49,7 @@ Modifier keywords
   abstract, actual, annotation, companion, enum, final, infix, inline, lateinit, operator, and open
 ```
 
-### Whitespace
+## Whitespace
 whitespace is not significant and can be safely ignored. 
 
 ```kotlin
@@ -65,7 +62,7 @@ or
 fun main(args: Array<String>) {println("Hello")}
 ```
 
-### Operators
+## Operators
 
 **mathematical operators** \
 ```+, -, *, /, %```
@@ -96,7 +93,7 @@ fun main(args: Array<String>) {
   } 
 }
 ```
-### referential equality\
+## referential equality\
 ```kotlin
 ===, !===
 ``` 
@@ -124,7 +121,7 @@ fun main(args: Array<String>) {
   println(fruits[2]) // Banana
 }
 ```
-### KDoc Comments
+## KDoc Comments
 KDoc is like Javadoc, it starts with /** and it ends with */. This form of commenting is very similar to the multiline comment , but this is used to provide API documentation to Kotlin codes. 
 
 ```kotlin
@@ -142,7 +139,7 @@ KDoc is like Javadoc, it starts with /** and it ends with */. This form of comme
       } 
    }
 ```
-### Numbers and Literal Constants
+## Numbers and Literal Constants
 ```kotlin
 var a = 10L // a is a Long literal, note the L postfix var b = 20
 var a = b // this won't work
@@ -174,7 +171,7 @@ Every number type can be converted to any of the number types. That means all Do
 • toDouble() : Double
 • toChar() : Char
 ```
-### Characters
+## Characters
 Characters in Kotlin cannot be treated directly as numbers. 
 ```kotlin
 var enterKey = 'a'
@@ -188,14 +185,14 @@ println(a.toUpperCase()) // A
 val b: String = a.toString() // converts it to a String
 ```
 
-### Escape sequences
+## Escape sequences
 
 use escape sequences such as \t, \b, \n, \r, \", \", \\, and \$ and if you need to encode any other character, you can use the Unicode syntax (e.g., \uFF00).
 
-### Booleans
+## Booleans
 Booleans are represented by the literals true and false. 
 
-### Arrays
+## Arrays
 Working With the Array Type
 ```kotlin
 fun main(args: Array<String>) {
@@ -211,10 +208,10 @@ fun main(args: Array<String>) {
 }
 ```
 
-### Strings and String Templates
+## Strings and String Templates
 var str: String = "Hello World\n"
 
-#### raw string
+### raw string
 using triple quote delimiter
 
 ```kotlin
@@ -223,7 +220,7 @@ I am definitely a mad man with a box!
 """
 ```
 
-#### about Kotlin strings
+### about Kotlin strings
 ```kotlin
   val str = "The quick brown fox"
   for (i in str) println(i)
@@ -231,7 +228,7 @@ I am definitely a mad man with a box!
   var strNum = 10 + "" // this won't work anymore
   var strNum = 10.toString() // we have to explicitly convert now
 ```
-#### Using String.format and printf
+### Using String.format and printf
 ```kotlin
 var name = "John Doe"
 var email = "john.doe@gmail.com" var phone = "(01)777-1234"
@@ -245,7 +242,7 @@ var concat = "name: $name | email: $email | phone: $phone" println(concat)
 // prints
 // name: John Doe | email: john.doe@gmail.com | phone: (01)777-1234
 ```
-#### Using Template Expressions
+### Using Template Expressions
 ```kotlin
 fun main(args:Array<String>) {
     var name = "John Doe"
@@ -257,8 +254,8 @@ fun foo(): String {
   return "Boo"
 }
 ```
-### Controlling Program Flow
-#### Using ifs
+## Controlling Program Flow
+### Using ifs
 
 The basic form of the if construct is 
 ```kotlin
@@ -304,7 +301,7 @@ omit the curly braces on the blocks, since the blocks contain only single statem
 ```kotlin
 var message = if (answer == correctAnswer) "You are correct" else "Try again"
 ```
-### The when Statement
+## The when Statement
 ```kotlin
 val d = Date()
 val c = Calendar.getInstance()
@@ -344,7 +341,7 @@ fun main(args: Array<String>) {
     println(message)
 }
 ```
-### The while Statement
+## The while Statement
 
 The while and do . . while statements work exactly as they do in Java
 
@@ -357,7 +354,7 @@ fun main(args: Array<String>) {
   }
 }
 ```
-### for loops
+## for loops
 ```kotlin
   for (int i = 0; i < 10; i++) { 
     statements
@@ -374,7 +371,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-#### Ranges
+### Ranges
 If you need to work with numbers on the for loop, you can use Ranges. 
 ```kotlin
   var zeroToTen = 0..10
@@ -389,7 +386,7 @@ fun main(args: Array<String>) {
   }
 }
 ```
-### Exception Handling
+## Exception Handling
 Kotlin’s exception handling is very similar to Java: it also uses the try-catch-finally construct
 ```kotlin
 fun main(args: Array<String>) {
@@ -405,7 +402,7 @@ fun main(args: Array<String>) {
   }
 }
 ```
-### Handling Nulls
+## Handling Nulls
 
 Handling of null values is such a big concern in Java that Kotlin made a very deliberate decision to introduce the concept of a Nullable type.
 ```kotlin
@@ -416,7 +413,7 @@ To make a String (or any type) Nullable, we use the question mark symbol as post
 ```kotlin
 var str: String? = "Hello"
 ```
-#### safe-call operator
+### safe-call operator
 It’s called the safe-call operator, which is written as the question mark symbol followed by a dot ?.
 ```kotlin
   arr?.forEach { i -> println(i) }
@@ -434,7 +431,7 @@ fun printArr(arr: Array<Int>?) {
 }
 ```
 
-### Chapter Summary
+## Chapter Summary
 
 * Kotlin’s program elements are not that different from Java; it also has operators, blocks, statements, expressions, etc. In Kotlin, however, some constructs that are considered statements in Java are expressions in Kotlin, and some that were considered expressions in Java are statements in Kotlin (e.g., the assignment operation).
 * Kotlin’s basic types are not the same as primitive types of Java. Everything in Kotlin is an object.
