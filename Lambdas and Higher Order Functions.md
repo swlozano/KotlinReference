@@ -166,3 +166,84 @@ executor { println("Hello $it")}
 ```
 
 ## Closures
+When you use a lambda expression inside a function, the lambda can access its closure. The closure is comprised of the local variables in the outer scope as well as all the parameters of the enclosing function.
+
+ ```kotlin
+//lambda Accessing Its Closure
+fun main(args: Array<String>) { 
+  executor(listOf(1..1000).flatten()) ➊
+}
+fun executor(numbers:List<Int>) { 
+  var sum = 0;
+  numbers.forEach { ➋
+    if ( it % 2 == 0 ) { 
+      sum += it ➌
+    } 
+  }
+  println("Sum of all even numbers = $sum") 
+}
+```
+
+➊ We’re passing a list of Ints to the executor()function. using the rangeTo function in operator form (..) is a handy way to generate a list of integers from 1 up to 1000. but you’d have to use the flatten() function to make it a list of Ints.<br>
+➋ forEach is a higher order function; it takes in a lambda, which allows us to walk through items in the list. the forEach only has one parameter, and we can access that single parameter using the implicit it parameter name.<br>
+➌ the sum variable is part of the closure; it’s within the function body where the lambda is defined. Lambdas have access to their closures.<br>
+
+## with and apply
+
+Kotlin lambdas have the ability to call methods of a different object without additional qualifiers in the body of the lambda. These kinds of lambdas are called lambdas with receivers.
+
+The functions with and apply are of particular interest not because they allow
+us to perform multiple operations on the same object without repeating the object’s name—which is a welcome feature-but because they look like they were baked into the language, which they’re not. They simply are functions that were made special by extension functions and lambdas.
+
+//class Event
+```kotlin
+import java.util.Date
+data class Event(val title:String) {
+  var date = Date()
+  var time = ""
+  var attendees = mutableListOf<String>()
+  fun create() {
+    print(this)
+  } 
+}
+  
+fun main(args: Array<String>) {
+  val mtg = Event("Management meeting")
+  mtg.date = Date(2018,1,1) 
+  mtg.time = "0900H" 
+  mtg.attendees.add("Ted")
+  mtg.create() 
+} 
+```
+If we were to use the with function to refactor the code, it would look like:
+```kotlin
+//Using the With Function 
+fun main(args: Array<String>) {
+  val mtg = Event("Management meeting")
+  with(mtg) {
+    date = Date(2018,1,1) 
+    time = "0900H" 
+    attendees.add("Ted")
+  } 
+}
+```
+
+**The apply** function can achieve the same thing; it’s almost very similar to the with function except that it returns the receiver (the object passed to it)—the with function doesn’t.
+
+```kotlin
+fun main(args: Array<String>) {
+  val mtg = Event("Management meeting")
+  mtg.apply { ➊ 
+    date = Date() ➋ 
+    time = "0900H" 
+    attendees.add("Ted")
+  }.create() ➌ 
+}
+```
+
+➊ Apply is an extension function and the mtg object becomes its receiver.  <br>
+➋ and because the mtg object is the receiver, this refers to the mtg object. <br>
+➌ When the lambda returns, it returns the receiver, which is a mtg object; hence, we can chain some calls into it.
+<br>  
+There are many more functions in Standard.Kt like run, let, also, etc., but these two examples using with and apply should give us an idea of what lambdas are capable of.
+  
