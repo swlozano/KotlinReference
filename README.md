@@ -1,4 +1,4 @@
 # KotlinReference
 Guia rápida  de Kotlin para desarrolladores Android.
 <br>
-[Kotlin Basics](https://github.com/swlozano/KotlinReference/blob/34ec5939ca4dec88a499da195fb365022bf049ce/Kotlin%20Basics.md) 
+[Kotlin Basics](https://github.com/swlozano/KotlinReference/blob/5a274587ddd5878d8132bda8e6c495e070ff49e3/Kotlin%20Basics.md) 
