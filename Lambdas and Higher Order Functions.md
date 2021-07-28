@@ -92,4 +92,77 @@ fun executor(action:() -> Unit) {
 ➊This is the function literal. in Listing 5-5, we passed doThis, which was a property whose value was a lambda expression. in this example, we are passing the lambda expression itself directly to the higher order function. a lambda expression is enclosed in a pair of curly braces— just like the body of a function.
 
 ## Parameters in Lambda Expressions
+If we were to write it as a lambda, it would look like
+```kotlin
+Simple Function to Display a String
+fun display(msg:String) { 
+  println("Hello $msg")
+}
+```
+```kotlin
+//display Function Written As lambda 
+{ msg:String -> println("Hello $msg") }
+```
+You’ll notice that the entire function header, the keyword fun and the function name, is completely gone, and the parameter list was relocated inside the lambda expression.
+<br>
+The whole expression is enclosed in a pair of curly braces. <br>
+In a lambda expression, the parameter list is written on the left-hand side of the arrow operator and the body of
+the function is found on the right. <br>
+You will also notice that the parameters in a lambda expression don’t need to be inside a pair of parentheses because the arrow operator separates the parameter list from the body of the lambda.<br>
+You can omit the type declaration of String in the parameter, so it can be written like in Listing.
+```kotlin
+//Omitted Type Declaration in Parameter List 
+{ msg -> println("Hello $msg") }
+You will also notice that the parameters in a lambda expression don’t need to be inside a pair of parentheses because the arrow operator separates the parameter list from the body of the lambda.
+```
 
+In some cases where the lambda expression takes only one parameter, Kotlin allows us to omit the parameter declaration and even the arrow operator. We can rewrite  in an even shorter way.
+```kotlin
+//The Implicit It 
+{ println("Hello $it") }
+```
+The it parameter name is generated if the context expects a lambda that has only one parameter and if its type can be inferred. the full code on how to declare and use a lambda expression within the context of a higher order function. 
+<br>Now we have the functional programming version of the Hello World example.
+
+```kotlin
+//Full Code for the lambda Example
+fun main(args: Array<String>) { 
+  executor({ println("Hello $it") })
+}
+fun executor(display:(msg:String) -> Unit) { 
+  display("World")
+}
+```
+Writing and using lambdas with more than one parameter isn’t much different from our single parameter example, as long as you write the parameter list on left side of the arrow operator.
+
+```kotlin
+//lambdas With More Than One Parameter
+fun main(args: Array<String>) { 
+  doer({ x,y -> println(x + y) })
+}
+fun doer(sum:(x:Int,y:Int) -> Unit) { 
+  sum(1,2)
+}
+```
+There may be occasions when a higher order function will take in some other parameters together with function types. Such a function could look like:
+```kotlin
+//Higher Order Function With Multiple Parameters
+fun executor(arg: String = "Mondo", display:(msg:String) -> Unit) { 
+  display(arg)
+}
+//We can invoke this function with this
+executor("Earth", {println("Hola $it")})
+//And since executor’s first parameter has a default value, we can still invoke it like this 
+executor({println("Hola $it")})
+```
+In cases where the lambda is expected as the last parameter in a higher order function, we can write the lambda outside the parentheses of the invoking function, like this:
+
+```kotlin
+executor() { println("Hello $it")}
+````
+And if the lambda is the only parameter, we can even omit the parentheses entirely, like this one:
+```kotlin
+executor { println("Hello $it")}
+```
+
+## Closures
