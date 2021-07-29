@@ -7,7 +7,8 @@ Kotlin provides literals for the basic types (numbers, character, Boolean, Strin
 ```kotlin
 var intLiteral = 5
 var doubleLiteral = .02
-var stringLiteral = "Hello" var charLiteral = '1'
+var stringLiteral = "Hello" 
+var charLiteral = '1'
 var boolLiteral = true
 ```
 
