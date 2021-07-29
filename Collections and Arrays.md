@@ -1,7 +1,7 @@
 # Collections and Arrays
 Kotlin has some library functions like arrayOf, emptyArray, and arrayOfNulls that we can use to facilitate array creation.
 
-![Image of Yaktocat](KotlinReference/Collectios Framework.png)
+![Image of Yaktocat](https://github.com/swlozano/KotlinReference/blob/7ca6e7011a8ae31a5887ef7966e27630cf06d0dd/Collectios%20Framework.png)
 
 ```kotlin
 //Using the emptyArray Function
