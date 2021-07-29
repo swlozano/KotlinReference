@@ -11,7 +11,8 @@ fun functionName([parameters]) [:type] {
 ```
 non-productive function
 ```kotlin
-fun displayMessage(msg: String, count: Int) { var counter = 1
+fun displayMessage(msg: String, count: Int) { 
+var counter = 1
 while(counter++ <= count ) {
     println(msg)
   }
@@ -20,7 +21,8 @@ while(counter++ <= count ) {
 
 **displayMessage With an Explicit Return Type**
 ```kotlin
-fun displayMessage(msg: String, count: Int) : Unit { var counter = 1
+fun displayMessage(msg: String, count: Int) : Unit { 
+var counter = 1
 while(counter++ <= count ) {
     println(msg)
   }
@@ -30,7 +32,8 @@ while(counter++ <= count ) {
 getSum, A Productive Function
 ```kotlin
 fun getSum(values: List<Int>) : Int { // return type is Int var total = 0;
-  for (i in values) total += i
+  for (i in values) 
+    total += i
   return total // return value
 }
 ```
