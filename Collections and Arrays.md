@@ -1,8 +1,6 @@
 # Collections and Arrays
 Kotlin has some library functions like arrayOf, emptyArray, and arrayOfNulls that we can use to facilitate array creation.
-
-![Image of Yaktocat](https://github.com/swlozano/KotlinReference/blob/7ca6e7011a8ae31a5887ef7966e27630cf06d0dd/Collectios%20Framework.png)
-
+## Arrays
 ```kotlin
 //Using the emptyArray Function
 var arr = emptyArray<String>(); 
@@ -74,7 +72,8 @@ x.forEachIndexed {
 ## Collections
 
 Collections Framework
-Imagen.
+
+![Image of Yaktocat](https://github.com/swlozano/KotlinReference/blob/7ca6e7011a8ae31a5887ef7966e27630cf06d0dd/Collectios%20Framework.png)
 
 Kotlin doesn’t have a dedicated syntax for creating lists or sets, but it does provide us with library functions to facilitate creation. 
 
