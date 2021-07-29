@@ -78,7 +78,7 @@ Collections Framework
 Kotlin doesn’t have a dedicated syntax for creating lists or sets, but it does provide us with library functions to facilitate creation. 
 
 **Kotlin Collections and Their Creation Functions**
-Tabla
+![Kotlin Collections and Their Creation Functions](https://github.com/swlozano/KotlinReference/blob/342ce04d6fb5be412fb35b4a95ed528298bddbb4/Kotlin%20Collections%20and%20Their%20Creation%20Functions.png)
 
 
 ## Lists
