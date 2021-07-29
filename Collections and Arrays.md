@@ -156,7 +156,7 @@ println(snapshot["bar"]) // prints 2 ➐
 ➏ also prints {bar = 2, baz = 3, foo=1}, because both snapshot and dict points to the same map. ➐ Gets the value from the map using the key<br>
 
 **Common Operations on Collections**
-![Common Operations on Collections]()
+![Common Operations on Collections](https://github.com/swlozano/KotlinReference/blob/7c03bb4ec1b83dc4ee4f1fc8649cf342c15960eb/Common%20Operations%20on%20Collections.png)
 
 ## Collections Traversal
 
